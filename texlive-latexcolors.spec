@@ -1,6 +1,6 @@
 Name:		texlive-latexcolors
 Version:	49888
-Release:	1
+Release:	2
 Summary:	Use color definitions from latexcolor.com
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/latexcolors
