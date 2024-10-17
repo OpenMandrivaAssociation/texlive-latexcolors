@@ -3,7 +3,7 @@ Version:	49888
 Release:	2
 Summary:	Use color definitions from latexcolor.com
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/latexcolors
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/latexcolors
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.doc.r%{version}.tar.xz
