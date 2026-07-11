@@ -1,40 +1,23 @@
-Name:		texlive-latexcolors
-Version:	49888
-Release:	2
+%global tl_name latexcolors
+%global tl_revision 49888
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.1a
+Release:	%{tl_revision}.1
 Summary:	Use color definitions from latexcolor.com
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/latexcolors
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/latexcolors.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-Built on top of the xcolor package, the latexcolors package
-defines the set of colors shown on latexcolor.com for use in
-documents typeset with LaTeX & friends.
+Built on top of the xcolor package, the latexcolors package defines the
+set of colors shown on latexcolor.com for use in documents typeset with
+LaTeX & friends.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/latexcolors
-%{_texmfdistdir}/tex/latex/latexcolors
-%doc %{_texmfdistdir}/doc/latex/latexcolors
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
